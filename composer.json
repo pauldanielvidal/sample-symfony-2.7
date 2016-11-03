@@ -1,10 +1,10 @@
 {
-    "name": "insead/sample.symfony.2.7.temp",
+    "name": "pauldanielvidal/sample.symfony.2.7",
     "license": "proprietary",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "App\\": "src/"
         },
         "classmap": [
             "app/AppKernel.php",
