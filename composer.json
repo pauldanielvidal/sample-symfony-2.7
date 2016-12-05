@@ -4,8 +4,8 @@
     "type": "project",
     "description": "sample symfony 2.7 application",
     "autoload": {
-        "psr-4": {
-            "App\\": "src/"
+        "psr-0": {
+            "App": "src/"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php", "src/AppBundle/AppBundle.php" ]
     },
