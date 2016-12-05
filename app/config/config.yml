@@ -77,3 +77,10 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+snc_redis:
+    clients:
+        default:
+            type: phpredis
+            alias: default
+            dsn: "redis://127.0.0.1"
