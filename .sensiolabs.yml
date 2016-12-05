@@ -1,0 +1,55 @@
+pre_composer_script: |
+    #!/bin/bash
+
+    # Do what you need to setup your project
+    cp app/config/parameters.yml.dist app/config/parameters.yml
+    sed -i -e "s/database_user:.*/database_user: root/" app/config/parameters.yml
+    sed -i -e "s/database_password:.*/database_password: Secr3t/" app/config/parameters.yml
+
+    #install redis
+    sudo apt-get -y install redis-server
+
+    # instal phpredis
+    sudo apt-get -y install php5-dev
+    cd /var/tmp
+    wget https://github.com/phpredis/phpredis/zipball/master -O phpredis.zip \
+    && unzip -o phpredis.zip \
+    && cd phpredis-phpredis-* \
+    && phpize \
+    && ./configure \
+    && make \
+    && make install
+
+php_version: 5
+
+php_ini: |
+    extension=openssl.so
+    extension=mcrypt.so
+    extension=redis.so
+
+global_exclude_dirs:
+    - vendor
+    - vendors
+    - test
+    - tests
+    - Tests
+    - spec
+    - features
+    - Fixtures
+    - DataFixtures
+    - var
+    - selenium
+
+exclude_patterns:
+    - app/check.php
+    - app/SymfonyRequirements.php
+    - web/config.php
+    - web/app_*.php
+    - app/.htaccess
+    - src/.htaccess
+    - web/.htaccess
+
+rules:
+  symfony.configuration.error_pages_should_be_customised:
+    enabled: false
+
