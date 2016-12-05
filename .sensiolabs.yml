@@ -9,7 +9,7 @@ pre_composer_script: |
     #install redis
     sudo apt-get -y install redis-server
 
-    # instal phpredis
+    #instal phpredis
     sudo apt-get -y install php5-dev
     cd /var/tmp
     wget https://github.com/phpredis/phpredis/zipball/master -O phpredis.zip \
@@ -20,12 +20,13 @@ pre_composer_script: |
     && make \
     && make install
 
+
 php_version: 5
 
 php_ini: |
+    extension=redis.so
     extension=openssl.so
     extension=mcrypt.so
-    extension=redis.so
 
 global_exclude_dirs:
     - vendor
@@ -52,4 +53,3 @@ exclude_patterns:
 rules:
   symfony.configuration.error_pages_should_be_customised:
     enabled: false
-
