@@ -7,3 +7,6 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    # Nullify this service. It is deprecated and raises an error on SensioLabs Insight
+    twig.extension.actions:
+        class: AppBundle\Twig\NullExtension
