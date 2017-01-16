@@ -34,7 +34,7 @@ framework:
 # Twig Configuration
 twig:
     cache: false
-    autoescape: true
+    autoescape: 'html'
 
 # Assetic Configuration
 assetic:

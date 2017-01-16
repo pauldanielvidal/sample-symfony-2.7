@@ -36,7 +36,11 @@ class NullExtension implements \Twig_ExtensionInterface
      */
     public function getFilters()
     {
-        return [];
+        return array(
+            'html' => new \Twig_Filter_Method($this, 'html', array(
+                    'is_safe' => array('html'))
+            ),
+        );
     }
 
     /**
